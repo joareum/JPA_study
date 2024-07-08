@@ -34,6 +34,8 @@ public class MemberRepositoryTest {
         //then
         Assertions.assertEquals(findMember.getId(), member.getId());
         Assertions.assertEquals(findMember.getUsername(), member.getUsername());
+        Assertions.assertEquals(findMember,member);
+        System.out.println("findMember == member: "+ (findMember == member));
     }
 
 }

@@ -18,12 +18,9 @@ import static org.junit.Assert.*;
 @Transactional
 public class MemberServiceTest {
 
-    @Autowired
-    MemberService memberService;
-    @Autowired
-    MemberRepository memberRepository;
-    @Autowired
-    EntityManager em;
+    @Autowired MemberService memberService;
+    @Autowired MemberRepository memberRepository;
+    @Autowired EntityManager em;
 
     @Test
     @Rollback(false)
@@ -56,9 +53,4 @@ public class MemberServiceTest {
         //then
         fail("예외가 발생해야 한다.");
     }
-
-
-        
-    
-
 }

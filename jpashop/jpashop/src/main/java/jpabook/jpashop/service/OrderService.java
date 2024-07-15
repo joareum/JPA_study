@@ -20,7 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrderService{
 
-    private final OrderRepository orderRepository;
+    private final OrderRepository OrderRepository;
     private final MemberRepository memberRepository;
     private final ItemRepository itemRepository;
 
@@ -44,7 +44,7 @@ public class OrderService{
         Order order = Order.createOrder(member, delivery, orderItem);
 
         //주문 저장
-        orderRepository.save(order);
+        OrderRepository.save(order);
         return order.getId();
     }
     /**
@@ -53,13 +53,13 @@ public class OrderService{
     @Transactional
     public void cancelOrder(Long orderId){
         //주문 엔티티 조회
-        Order order = orderRepository.findOne(orderId);
+        Order order = OrderRepository.findOne(orderId);
         //주문 취소
         order.cancel();
     }
 
     // 검색
     public List<Order> findOrders(OrderSearch orderSearch){
-        return orderRepository.findAllByString(orderSearch);
+        return OrderRepository.findAllByString(orderSearch);
         }
 }
